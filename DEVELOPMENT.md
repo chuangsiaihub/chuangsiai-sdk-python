@@ -76,6 +76,12 @@ twine upload --repository chuangsiai-sdk  dist/*
 
 这时会提示你输入 TestPyPI 的用户名和密码。
 
+- 正式版
+
+```bash
+ twine upload --repository-url https://upload.pypi.org/legacy/ dist/*
+```
+
 ### 4. 安装
 
 ```bash
