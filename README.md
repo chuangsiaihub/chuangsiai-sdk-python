@@ -54,11 +54,9 @@ if __name__ == "__main__":
 
 ## 📚 文档说明
 
-- API 文档
-
 - [使用示例 1](https://github.com/chuangsiaihub/chuangsiai-sdk-python/blob/master/examples/accesskey_simple_usage.py)、[使用示例 2](https://github.com/chuangsiaihub/chuangsiai-sdk-python/blob/master/examples/apikey_simple_usage.py)
 
-- 开发指南
+- [开发指南](https://github.com/chuangsiaihub/chuangsiai-sdk-python/blob/master/DEVELOPMENT.md)
 
 ## 🛠️ 开发环境搭建
 
