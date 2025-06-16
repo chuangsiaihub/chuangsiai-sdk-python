@@ -1,0 +1,7 @@
+myenv/
+tests/__pycache__/
+examples/simple_usage.py
+chuangsiai_sdk.egg-info/
+dist/
+chuangsiai_sdk/__pycache__/
+test/
