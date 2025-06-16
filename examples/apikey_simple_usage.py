@@ -6,7 +6,7 @@ def main():
     client = ChuangsiaiClient(api_key="< 控制台申请的 ApiKey >")
     
     # 调用接口
-    req = InputGuardrailRequest(strategyKey="< 策略标识，在控制台中创建 >", content="检测文本")
+    req = InputGuardrailRequest(strategy_key="< 策略标识，在控制台中创建 >", content="检测文本")
     resp =  client.input_guardrail(req)
     
     # 处理返回结果。这里简单打印

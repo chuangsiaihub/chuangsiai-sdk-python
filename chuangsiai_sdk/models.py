@@ -3,10 +3,13 @@ from pydantic import BaseModel, Field, ValidationError, model_validator
 class BaseRequestModel(BaseModel):
     """基础请求模型"""
     def to_dict(self):
-        return self.model_dump(exclude_none=True)
+        return self.model_dump(exclude_none=True, by_alias=True)
 
+    class Config:
+        populate_by_name = True  # 可用 field name 初始化
+        
 class InputGuardrailRequest(BaseRequestModel):
-    strategyKey: str = Field(..., description="策略标识符")
+    strategy_key: str = Field(..., alias="strategyKey", description="策略标识符")
     content: str = Field(..., description="待检测内容")
 
     @model_validator(mode="before")
@@ -37,7 +40,7 @@ class InputGuardrailRequest(BaseRequestModel):
 
 class OutputGuardrailRequest(BaseRequestModel):
     """安全护栏输出请求模型"""
-    strategyKey: str = Field(..., description="策略标识符")
+    strategy_key: str = Field(..., alias="strategyKey", description="策略标识符")
     content: str = Field(..., description="待检测内容")
 
     @model_validator(mode="before")
