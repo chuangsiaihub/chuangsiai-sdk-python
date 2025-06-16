@@ -56,7 +56,7 @@ if __name__ == "__main__":
 
 - API 文档
 
-- 使用示例
+- [使用示例 1](https://github.com/chuangsiaihub/chuangsiai-sdk-python/blob/master/examples/accesskey_simple_usage.py)、[使用示例 2](https://github.com/chuangsiaihub/chuangsiai-sdk-python/blob/master/examples/accesskey_simple_usage.py)
 
 - 开发指南
 
@@ -75,11 +75,11 @@ pip3 install -e .
 
 ```
 
-更多开发细节请参考 [DEVELOPMENT.md](DEVELOPMENT.md)。
+更多开发细节请参考 [DEVELOPMENT.md](https://github.com/chuangsiaihub/chuangsiai-sdk-python/blob/master/DEVELOPMENT.md)。
 
 ## 🔐 安全策略
 
-创思安全 SDK 依赖 HMAC-SHA256 签名机制对所有请求进行身份验证和防篡改处理。详见 [auth.py](chuangsiai/auth.py)。
+创思安全 SDK 依赖 HMAC-SHA256 签名机制对所有请求进行身份验证和防篡改处理。详见 [auth.py](https://github.com/chuangsiaihub/chuangsiai-sdk-python/blob/master/chuangsiai_sdk/auth.py)。
 
 ## 📦 依赖列表
 
@@ -88,7 +88,7 @@ pip3 install -e .
 
 ## 📄 许可证
 
-本项目基于 MIT 协议开源。详见 [LICENSE](LICENSE)。
+本项目基于 MIT 协议开源。
 
 ## 📬 联系我们
 
