@@ -18,7 +18,7 @@ class InputGuardrailRequest(BaseRequestModel):
         if not isinstance(data, dict):
             raise TypeError("数据格式必须是 dict")
         
-        expected_fields = {"strategyKey", "content"}
+        expected_fields = {"strategy_key", "content"}
         missing = expected_fields - data.keys()
         extra = data.keys() - expected_fields
         if missing:
@@ -33,7 +33,7 @@ class InputGuardrailRequest(BaseRequestModel):
     class Config:
         json_schema_extra = {
             "example": {
-                "strategyKey": "default_strategy",
+                "strategy_key": "default_strategy",
                 "content": "用户输入内容"
             }
         }
@@ -49,7 +49,7 @@ class OutputGuardrailRequest(BaseRequestModel):
         if not isinstance(data, dict):
             raise TypeError("数据格式必须是 dict")
         
-        expected_fields = {"strategyKey", "content"}
+        expected_fields = {"strategy_key", "content"}
         missing = expected_fields - data.keys()
         extra = data.keys() - expected_fields
         if missing:
@@ -63,7 +63,7 @@ class OutputGuardrailRequest(BaseRequestModel):
     class Config:
         json_schema_extra = {
             "example": {
-                "strategyKey": "default_strategy",
+                "strategy_key": "default_strategy",
                 "content": "AI生成内容"
             }
         }

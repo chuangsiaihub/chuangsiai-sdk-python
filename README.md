@@ -37,13 +37,12 @@ pip3 install -e .
 ## 🚀 快速上手
 
 ```python
-from chuangsiai_sdk import ChuangsiaiClient, InputGuardrailRequest, OutputGuardrailRequest
+from chuangsiai_sdk import ChuangsiaiClient
 
 def main():
     client = ChuangsiaiClient(access_key="< 控制台申请的 AccessKey >",secret_key="< 控制台申请的 SecretKey >")
 
-    req = InputGuardrailRequest(strategy_key="< 策略标识，在控制台中创建 >", content="检测文本")
-    resp =  client.input_guardrail(req)
+    resp =  client.input_guardrail(strategy_key="< 策略标识，在控制台中创建 >", content="检测文本")
 
     print(resp)
 

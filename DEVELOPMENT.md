@@ -47,7 +47,7 @@ pip3 install -r requirements.txt
 确保你的项目结构完整，有 pyproject.toml 或 setup.py。
 
 ```bash
-pip install --upgrade build twine
+pip3 install --upgrade build twine
 ```
 
 ### 2. 打包
@@ -55,7 +55,7 @@ pip install --upgrade build twine
 在项目根目录运行：
 
 ```bash
-python -m build
+python3 -m build
 ```
 
 会生成 dist/ 目录，里面有 .tar.gz 和 .whl 文件。
