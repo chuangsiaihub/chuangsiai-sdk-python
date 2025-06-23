@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "chuangsiai-sdk"
-version = "1.0.2"
+version = "1.1.0"
 description = "创思大模型安全工具是一款面向大语言模型的内容安全防护系统，旨在识别和拦截 LLM 输入与输出中的潜在安全风险，包括涉政敏感、色情、违法违规行为、负面价值导向、辱骂言论及隐私泄露等内容。针对存在风险的输入，该工具还支持安全可信代答，助力用户实现大模型系统的安全合规。"
 authors = [{name = "Chuangsiai", email = "service@chuangsiai.com"}]
 readme = "README.md"
