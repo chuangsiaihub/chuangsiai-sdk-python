@@ -101,7 +101,7 @@ class AuthGenerator:
     def _generate_api_key_headers(self, base_headers: Dict[str, str]) -> Dict[str, str]:
         """生成API Key认证头"""
         base_headers.update({
-            'Authorization': f"Bearer {self.api_key}",
+            'Authorization': f"{self.api_key}",
             'X-Referer': 'python-sdk-apikey',
         })
         return base_headers
