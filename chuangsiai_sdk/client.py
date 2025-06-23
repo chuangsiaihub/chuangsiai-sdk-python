@@ -28,7 +28,8 @@ class ChuangsiaiClient:
         access_key: Optional[str] = None,
         secret_key: Optional[str] = None,
         timeout: float = default_timeout , # 超时参数
-        base_url: str = default_url # 基础URL
+        base_url: str = default_url, # 基础URL
+        headers: Optional[dict] = None # 请求头
     ):
         """
         初始化安全客户端，根据参数自动选择认证方式
@@ -50,6 +51,8 @@ class ChuangsiaiClient:
         self.session.headers.update({"User-Agent": "chuangsiai-python-SDK/1.0"})
         self.timeout = timeout  # 存储超时时间
         self.base_url = base_url  # 存储基础URL
+        if headers:
+            self.session.headers.update(headers) # 更新请求头
     
     def _make_request(self, method: str, endpoint: str, payload: dict = None):
         """执行签名请求"""
