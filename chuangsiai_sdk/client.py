@@ -51,9 +51,9 @@ class ChuangsiaiClient:
         self.session.headers.update({"User-Agent": "chuangsiai-python-SDK/1.0"})
         self.timeout = timeout  # 存储超时时间
         self.base_url = base_url  # 存储基础URL
-        if headers:
-            self.session.headers.update(headers) # 更新请求头
-    
+        self.headers = headers  # 存储请求头
+
+
     def _make_request(self, method: str, endpoint: str, payload: dict = None):
         """执行签名请求"""
         url = f"{self.base_url}{endpoint}"
@@ -65,6 +65,9 @@ class ChuangsiaiClient:
                 url=endpoint, # 仅使用路径部分
                 body=payload
             )
+            self.session.headers.update(headers) # 更新验证请求头
+            if self.headers is not None:
+                self.session.headers.update(self.headers) # 更新自定义请求头
         except AuthenticationException as e:
             # 捕获并重新抛出认证异常
             raise ChuangSiAiSafetyException(f"认证头生成失败: {str(e)}")
@@ -76,7 +79,6 @@ class ChuangsiaiClient:
                 method=method,
                 url=url,
                 json=payload,
-                headers=headers,
                 timeout=self.timeout
             )
             
