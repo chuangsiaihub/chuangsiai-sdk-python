@@ -15,7 +15,7 @@ class TestChuangsiaiClient(unittest.TestCase):
         mock_response.json.return_value = {"result": "safe"}
         mock_request.return_value = mock_response
 
-        resp = self.client.input_guardrail(strategy_key="default_strategy", content="测试内容")
+        resp = self.client.input_guardrail(strategy_id="default_strategy", content="测试内容")
         self.assertEqual(resp, {"result": "safe"})
         mock_request.assert_called_once()
 
@@ -29,7 +29,7 @@ class TestChuangsiaiClient(unittest.TestCase):
         mock_request.return_value = mock_response
 
         with self.assertRaises(APIException) as cm:
-            self.client.input_guardrail(strategy_key="default_strategy", content="测试内容")
+            self.client.input_guardrail(strategy_id="default_strategy", content="测试内容")
         self.assertIn("API Error", str(cm.exception))
 
     # @patch('chuangsiai.client.requests.Session.request')
@@ -43,7 +43,7 @@ class TestChuangsiaiClient(unittest.TestCase):
     #     mock_request.return_value = mock_response
 
     #     with self.assertRaises(APIException) as cm:
-    #         self.client.input_guardrail(strategy_key="default_strategy", content="测试内容")
+    #         self.client.input_guardrail(strategy_id="default_strategy", content="测试内容")
     #     self.assertIn("API Error", str(cm.exception))
 
     # @patch('chuangsiai.client.requests.Session.request')
@@ -52,7 +52,7 @@ class TestChuangsiaiClient(unittest.TestCase):
     #     mock_request.side_effect = Exception("连接超时")
 
     #     with self.assertRaises(ChuangSiAiSafetyException) as cm:
-    #         self.client.input_guardrail(strategy_key="default_strategy", content="测试内容")
+    #         self.client.input_guardrail(strategy_id="default_strategy", content="测试内容")
     #     self.assertIn("网络请求失败", str(cm.exception))
 
 

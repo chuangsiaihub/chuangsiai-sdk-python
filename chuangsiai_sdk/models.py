@@ -9,7 +9,7 @@ class BaseRequestModel(BaseModel):
         populate_by_name = True  # 可用 field name 初始化
         
 class InputGuardrailRequest(BaseRequestModel):
-    strategy_key: str = Field(..., alias="strategyKey", description="策略标识符")
+    strategy_id: str = Field(..., alias="strategyId", description="策略标识符")
     content: str = Field(..., description="待检测内容")
 
     @model_validator(mode="before")
@@ -18,7 +18,7 @@ class InputGuardrailRequest(BaseRequestModel):
         if not isinstance(data, dict):
             raise TypeError("数据格式必须是 dict")
         
-        expected_fields = {"strategy_key", "content"}
+        expected_fields = {"strategy_id", "content"}
         missing = expected_fields - data.keys()
         extra = data.keys() - expected_fields
         if missing:
@@ -33,14 +33,14 @@ class InputGuardrailRequest(BaseRequestModel):
     class Config:
         json_schema_extra = {
             "example": {
-                "strategy_key": "default_strategy",
+                "strategy_id": "default_strategy",
                 "content": "用户输入内容"
             }
         }
 
 class OutputGuardrailRequest(BaseRequestModel):
     """安全护栏输出请求模型"""
-    strategy_key: str = Field(..., alias="strategyKey", description="策略标识符")
+    strategy_id: str = Field(..., alias="strategyId", description="策略标识符")
     content: str = Field(..., description="待检测内容")
 
     @model_validator(mode="before")
@@ -49,7 +49,7 @@ class OutputGuardrailRequest(BaseRequestModel):
         if not isinstance(data, dict):
             raise TypeError("数据格式必须是 dict")
         
-        expected_fields = {"strategy_key", "content"}
+        expected_fields = {"strategy_id", "content"}
         missing = expected_fields - data.keys()
         extra = data.keys() - expected_fields
         if missing:
@@ -63,7 +63,7 @@ class OutputGuardrailRequest(BaseRequestModel):
     class Config:
         json_schema_extra = {
             "example": {
-                "strategy_key": "default_strategy",
+                "strategy_id": "default_strategy",
                 "content": "AI生成内容"
             }
         }

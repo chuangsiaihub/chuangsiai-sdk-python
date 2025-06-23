@@ -98,28 +98,28 @@ class ChuangsiaiClient:
             raise ChuangSiAiSafetyException(f"响应解析失败: {str(e)}")
     
     
-    def input_guardrail(self, strategy_key: str, content: str) -> dict:
+    def input_guardrail(self, strategy_id: str, content: str) -> dict:
         """
         输入安全护栏内容检测
         
-        :param strategy_key: 策略标识
+        :param strategy_id: 策略标识
         :param content: 检测内容
         """
-        request = InputGuardrailRequest(strategy_key=strategy_key, content=content)
+        request = InputGuardrailRequest(strategy_id=strategy_id, content=content)
         return self._make_request(
             method="POST",
             endpoint=inputGuardrailApi,
             payload=request.to_dict()
         )
     
-    def output_guardrail(self, strategy_key: str, content: str) -> dict:
+    def output_guardrail(self, strategy_id: str, content: str) -> dict:
         """
         输出安全护栏内容检测
         
-        :param strategy_key: 策略标识
+        :param strategy_id: 策略标识
         :param content: 检测内容
         """
-        request = OutputGuardrailRequest(strategy_key=strategy_key, content=content)
+        request = OutputGuardrailRequest(strategy_id=strategy_id, content=content)
         return self._make_request(
             method="POST",
             endpoint=outputGuardrailApi,
