@@ -15,6 +15,7 @@ config.read(config_path)
 default_url = config.get("default", "base_url")
 inputGuardrailApi = config.get("default", "input_guardrail_api")
 outputGuardrailApi = config.get("default", "output_guardrail_api")
+verifyApi = config.get("default", "verify_api")
 default_timeout = config.getint("default", "default_timeout")
 
 
@@ -125,3 +126,9 @@ class ChuangsiaiClient:
             endpoint=outputGuardrailApi,
             payload=request.to_dict()
         )
+    
+    def verify(self) -> dict:
+        """
+        验证 ApiKey 或 AccessKey+SecretKey 是否有效
+        """
+        return self._make_request(method="POST",endpoint=verifyApi,payload={"content": "verify","strategyId": "" })
